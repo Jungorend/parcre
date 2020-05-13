@@ -6,7 +6,7 @@ class BankAccount:
 class Bank:
     def __init__(self, bankID):
         self.id = bankID
-        self.currentID = 1 # This is the current available account ID
+        self.currentID = 0 # This is the current available account ID
         self.accounts = {}
 
     def createAccount(self):

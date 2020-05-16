@@ -12,7 +12,7 @@ class Bank:
     def createAccount(self):
         self.accounts[self.currentID] = BankAccount(self.currentID)
         self.currentID += 1
-        return [self.id, self.currentID - 1]
+        return [self.id, self.currentID - 1] # Currently saves as [bank, account]
 
     def displayFunds(self, account):
         return self.accounts[account].funds

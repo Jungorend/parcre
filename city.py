@@ -2,6 +2,7 @@
 # the city
 from bank import Bank
 from person import Person
+from company import Company
 
 initialBanks = 10
 initialPeople = 1000
@@ -9,7 +10,7 @@ initialPeople = 1000
 
 class City:
     def __init__(self):
-        # Initialize everything
+        # Generates the world
         self.banks = []
         self.people = []
         self.companies = []
@@ -21,6 +22,15 @@ class City:
                 p = self.people[j+(totalPeople*i)]
                 p.bankAccount = self.banks[i].createAccount()
                 self.banks[i].addFunds(p.bankAccount[1],p.setInitialFunds())
+        for person in self.people:
+            if person.soclass == 'investor':
+                invest = self.banks[person.bankAccount[0]].displayFunds(person.bankAccount[1]) / 2 # TODO: Better decision making for company values
+                self.banks[person.bankAccount[0]].addFunds(p.bankAccount[1],-invest)
+                newAccount = self.banks[person.bankAccount[0]].createAccount()
+                self.banks[person.bankAccount[0]].addFunds(newAccount[1], invest)
+                c = Company([self.banks[newAccount[0]], newAccount[1]])
+                person.companies.append(c)
+                self.companies.append(c)
 
     # this will iterate through all the cities to find out current postings and prices
     def getJobPostings(self):

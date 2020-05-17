@@ -19,6 +19,7 @@ class Person:
             x = randint(0,200)
             if x < 3:
                 self.soclass = 'investor'
+                self.companies = []
             else:
                 self.soclass = 'worker'
         else:

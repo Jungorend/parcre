@@ -11,18 +11,27 @@ commodity_types = {
         'type': 'necessity',
         'quality': 20,
         'accessibility': 30,
-        'dependencies': []
+        'dependencies': {
+            'workers': ['farmer'],
+            'tools': []
+        }
     },
     'regular clothing': {
         'type': 'necessity',
         'quality': 50,
         'accessibility': 20,
-        'dependencies': []
+        'dependencies': {
+            'workers': [],
+            'tools': []
+        }
     },
     'fancy clothing': {
         'type': 'luxury',
         'quality': 70,
         'accessibility': 80,
-        'dependencies': []
+        'dependencies': {
+            'workers': [],
+            'tools': []
+        }
     }
 }

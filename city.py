@@ -12,6 +12,7 @@ class City:
         # Initialize everything
         self.banks = []
         self.people = []
+        self.companies = []
         for i in range(0,initialBanks):
             self.banks.append(Bank(i))
             totalPeople = int(initialPeople/initialBanks)
@@ -21,3 +22,6 @@ class City:
                 p.bankAccount = self.banks[i].createAccount()
                 self.banks[i].addFunds(p.bankAccount[1],p.setInitialFunds())
 
+    # this will iterate through all the cities to find out current postings and prices
+    def getJobPostings(self):
+        return []

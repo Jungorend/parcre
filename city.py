@@ -42,4 +42,9 @@ class City:
             i += 1
         return postings
 
+    def update(self):
+        "Update the world"
+        for i in self.companies:
+            i.update()
+
 

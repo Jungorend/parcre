@@ -125,11 +125,11 @@ class Company:
         self.ticker += 1
         self.work()
         self.sell()
-        if self.ticker % 5 == 0:
-            print("Updating postings")
+        if self.ticker % CONFIG.JobPostingUpdate == 0:
             self.updatePostings()
-        self.determineBestProduct()
-        self.hireProjectStaff()
+        if self.ticker % CONFIG.HireUpdate == 0:
+            self.determineBestProduct()
+            self.hireProjectStaff()
 
 
 

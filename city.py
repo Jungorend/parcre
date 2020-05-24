@@ -24,7 +24,7 @@ class City:
                 self.banks[i].addFunds(p.bankAccount[1],p.setInitialFunds())
         for person in self.people:
             if person.soclass == 'investor':
-                invest = self.banks[person.bankAccount[0]].displayFunds(person.bankAccount[1]) / 2 # TODO: Better decision making for company values
+                invest = self.banks[person.bankAccount[0]].displayFunds(person.bankAccount[1]) // 2 # TODO: Better decision making for company values
                 self.banks[person.bankAccount[0]].addFunds(p.bankAccount[1],-invest)
                 newAccount = self.banks[person.bankAccount[0]].createAccount()
                 self.banks[person.bankAccount[0]].addFunds(newAccount[1], invest)
@@ -32,6 +32,14 @@ class City:
                 person.companies.append(c)
                 self.companies.append(c)
 
-    # this will iterate through all the cities to find out current postings and prices
     def getJobPostings(self):
-        return []
+        "Returns a list of each posting, showing [companyID position wages]"
+        postings = []
+        i = 0
+        for company in self.companies:
+            for post in company.jobPostings:
+                postings.append([i,post])
+            i += 1
+        return postings
+
+

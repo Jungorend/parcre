@@ -7,7 +7,7 @@ startingClasses = {
     },
     'investor': {
         'funds': [1000000000,100000000000],
-        'skills': ['employer','investor','influencer']
+        'skills': []
     }
 }
 

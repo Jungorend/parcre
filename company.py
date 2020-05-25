@@ -121,13 +121,12 @@ class Company:
     # determine how to expand
     # put up postings for new equipments and jobs
     # TODO: Add research and buy hardware, remove no longer profitable positions, employees
-    def update(self):
-        self.ticker += 1
+    def update(self,ticker):
         self.work()
         self.sell()
-        if self.ticker % CONFIG.JobPostingUpdate == 0:
+        if ticker % CONFIG.JobPostingUpdate == 0:
             self.updatePostings()
-        if self.ticker % CONFIG.HireUpdate == 0:
+        if ticker % CONFIG.HireUpdate == 0:
             self.determineBestProduct()
             self.hireProjectStaff()
 

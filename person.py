@@ -15,7 +15,12 @@ startingClasses = {
 
 requirements = {
     'minimum': ['food', 'food', 'regular clothing'],
-    'farmer': [5]
+    'craftsman': [],
+    'teacher': [],
+    'doctor': [],
+    'driver': [],
+    'cashier': [],
+    'farmer': ['chair', 5]
 }
 
 class Person:
@@ -43,13 +48,18 @@ class Person:
         x = map(city.marketAverage, requirements['minimum'])
         minimumExpectedWage = reduce(lambda x,y: x + y, x)
         if city.banks[self.bankAccount[0]].displayFunds(self.bankAccount[1]) < minimumExpectedWage * CONFIG.povertyLine:
-            return minimumExpectedWage
+            return minimumExpectedWage / CONFIG.payPeriod
         additionalRequirements = 0
         for skill in self.skills:
-            x = reduce(city.marketAverage, requirements[skill])
+            x = 0
+            for req in requirements[skill]:
+                if not isinstance(req, str):
+                    x += req
+                else:
+                    x += city.marketAverage(req)
             if x > additionalRequirements:
                 additionalRequirements = x
-        return minimumExpectedWage + additionalRequirements
+        return (minimumExpectedWage + additionalRequirements)/CONFIG.payPeriod
 
     def applyForJob(self, city):
         # Right now people will only apply for one job

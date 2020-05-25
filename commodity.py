@@ -33,5 +33,14 @@ commodity_types = {
             'workers': [],
             'tools': []
         }
+    },
+    'chair': {
+        'type': 'comfort',
+        'quality': 50,
+        'accessibility': 20,
+        'dependencies': {
+            'workers': [],
+            'tools': []
+        }
     }
 }

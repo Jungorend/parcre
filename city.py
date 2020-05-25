@@ -4,7 +4,7 @@ from functools import reduce
 from random import choice,randint
 
 from bank import Bank
-from person import Person
+from person import Person,startingClasses
 from company import Company
 from commodity import commodity_types
 from configuration import Config as CONFIG
@@ -20,7 +20,7 @@ class City:
 
         # To Memoize the marketAverages
         # Format is Commodity = [Updated, Price]
-        self.averages = {} 
+        self.averages = {}
 
         for i in range(0,CONFIG.initialBanks):
             self.banks.append(Bank(i))
@@ -39,6 +39,8 @@ class City:
                 c = Company([self.banks[newAccount[0]], newAccount[1]])
                 person.companies.append(c)
                 self.companies.append(c)
+            else:
+                person.skills = [choice(startingClasses['worker']['skills'])]
         # Initialize the commodity markets so there's stuff to buy initially
         goods = list(commodity_types.keys())
         for i in range(CONFIG.startingCommodities):
@@ -61,7 +63,7 @@ class City:
     # TODO: This function
     def jobApply(self, person, offer):
         "This is a request from a person to a job offer. It needs to create the link and associate the company"
-        print("Person is applying for this job: {}", offer[2])
+        print("Person is applying for this job: {}", offer[1].wages)
 
     # Memoizes the averages so that if multiple checks or calls are made it's in o[1] time
     # Only makes the checks if there have been any changes

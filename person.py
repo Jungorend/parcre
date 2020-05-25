@@ -26,7 +26,7 @@ requirements = {
 class Person:
     def __init__(self,  soclass="", skills=[]):
         self.bankAccount = []
-        self.job = []
+        self.jobs = []
         self.skills = skills
         if soclass == "":
             x = randint(0,200)
@@ -63,7 +63,7 @@ class Person:
 
     def applyForJob(self, city):
         # Right now people will only apply for one job
-        if self.job:
+        if self.jobs:
             return
         bestJobOffer = []
         minimumAcceptableWages = self.livingWages(city)
@@ -73,6 +73,9 @@ class Person:
                     bestJobOffer = posting
         if bestJobOffer:
             city.jobApply(self, bestJobOffer)
+
+    def hired(self, company,job):
+        self.jobs.append([company, job])
 
     def update(self,city,ticker):
         if ticker % CONFIG.jobSearchRate == 0:

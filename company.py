@@ -3,8 +3,8 @@ from commodity import commodity_types
 from configuration import Config as CONFIG
 
 class Employee:
-    def __init__(self, id, role, wages):
-        self.id = id
+    def __init__(self, person, role, wages):
+        self.person = person
         self.role = role
         self.wages = wages
 
@@ -68,7 +68,12 @@ class Company:
                     j.wages += 1
                     self.financing['budgeted'] += 1
 
-    # Non-destructive
+    def hireEmployee(self, person, offer):
+        e = Employee(person, offer.position, offer.wages)
+        self.employees['available'].append(e)
+        self.jobPostings.remove(offer)
+
+
     # TODO: Update so that a commodity can require more than one worker of the same type
     def hireProjectStaff(self):
         """This returns how many roles are needed to add one more project of the

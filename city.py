@@ -60,10 +60,11 @@ class City:
             i += 1
         return postings
 
-    # TODO: This function
     def jobApply(self, person, offer):
         "This is a request from a person to a job offer. It needs to create the link and associate the company"
-        print("Person is applying for this job: {}", offer[1].wages)
+        person.hired(self.companies[offer[0]], offer[1])
+        self.companies[offer[0]].hireEmployee(person, offer[1])
+
 
     # Memoizes the averages so that if multiple checks or calls are made it's in o[1] time
     # Only makes the checks if there have been any changes

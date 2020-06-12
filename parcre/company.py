@@ -1,6 +1,6 @@
 from math import ceil
-from commodity import commodity_types
-from configuration import Config as CONFIG
+from .commodity import commodity_types
+from .configuration import Config as CONFIG
 
 class Employee:
     def __init__(self, person, role, wages):

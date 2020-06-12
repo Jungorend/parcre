@@ -3,11 +3,11 @@
 from functools import reduce
 from random import choice,randint
 
-from bank import Bank
-from person import Person,startingClasses
-from company import Company
-from commodity import commodity_types
-from configuration import Config as CONFIG
+from .bank import Bank
+from .person import Person,startingClasses
+from .company import Company
+from .commodity import commodity_types
+from .configuration import Config as CONFIG
 
 class City:
     def __init__(self):

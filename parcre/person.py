@@ -1,6 +1,6 @@
 from random import randint
 from functools import reduce
-from configuration import Config as CONFIG
+from .configuration import Config as CONFIG
 
 startingClasses = {
     'worker': {

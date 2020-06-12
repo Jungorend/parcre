@@ -8,3 +8,6 @@ At present nothing is implemented, and no plans yet how to interact with the sim
 
 ## Current Status
 Still developing the basic systems needed for everything to interact, and getting a decent system for initializing it all. There is nothing that can be run just yet. Notes on future plans are stored in the *Design Notes.md* file, but the parce.py is the entry to the program, and city.py is a global object to store the state of all elements within this city.
+
+## Dependencies
+Testing uses pytest. The tests.py script will run them.

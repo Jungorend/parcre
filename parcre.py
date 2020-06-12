@@ -1,7 +1,7 @@
-from bank import Bank
-from person import Person
-from city import City
-from company import Company
+from parcre.bank import Bank
+from parcre.person import Person
+from parcre.city import City
+from parcre.company import Company
 
 if __name__ == "__main__":
     c = City()
